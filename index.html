@@ -1,78 +1,145 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Beauty Scanner 💅</title>
+    <title>ULTIMATE FACE SCAN SYSTEM</title>
+    <style>
+        body {
+            background: black;
+            color: #00ff00;
+            font-family: monospace;
+            text-align: center;
+            padding-top: 30px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
 
-<style>
-body{
-    margin:0;
-    background:#0f0f0f;
-    color:white;
-    font-family:Arial, sans-serif;
-    text-align:center;
-}
+        h1 {
+            letter-spacing: 4px;
+        }
 
-.container{
-    margin-top:50px;
-}
+        #scanBox {
+            border: 4px solid #00ff00;
+            width: 320px;
+            height: 320px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px #00ff00;
+        }
 
-img{
-    width:260px;
-    border-radius:20px;
-    box-shadow:0 0 25px hotpink;
-}
+        #line {
+            width: 100%;
+            height: 4px;
+            background: red;
+            position: absolute;
+            animation: scan 2s infinite;
+        }
 
-button{
-    margin-top:20px;
-    padding:12px 25px;
-    border:none;
-    border-radius:25px;
-    background:hotpink;
-    color:white;
-    font-weight:bold;
-    cursor:pointer;
-}
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
 
-.loading{
-    margin-top:20px;
-    font-size:18px;
-}
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background: black;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            cursor: pointer;
+        }
 
-.result{
-    margin-top:20px;
-    font-size:22px;
-    font-weight:bold;
-    color:hotpink;
-}
-</style>
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .red-alert {
+            background: darkred !important;
+            color: white !important;
+        }
+
+        .shake {
+            animation: shake 0.2s infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(2px, 2px); }
+            25% { transform: translate(-2px, -2px); }
+            50% { transform: translate(2px, -2px); }
+            75% { transform: translate(-2px, 2px); }
+            100% { transform: translate(2px, 2px); }
+        }
+
+        #photo {
+            display: none;
+            width: 200px;
+            margin-top: 20px;
+            border: 3px solid white;
+            box-shadow: 0 0 20px white;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1>💅 AI Beauty Detector v4.0</h1>
+<h1>ULTIMATE FACE SCAN v6.9</h1>
 
-    <img src="gigi.jpg" alt="Target">
-
-    <br>
-    <button onclick="scan()">Scan Sekarang</button>
-
-    <div class="loading" id="loading"></div>
-    <div class="result" id="result"></div>
+<div id="scanBox">
+    <div id="line"></div>
 </div>
 
-<script>
-function scan(){
-    document.getElementById("result").innerHTML="";
-    document.getElementById("loading").innerHTML="🔍 Menganalisis wajah...";
+<button onclick="startScan()">START SCAN</button>
 
-    setTimeout(function(){
-        document.getElementById("loading").innerHTML="";
-        document.getElementById("result").innerHTML=
-        "❌ ERROR 404: WAJAH TERLALU CANTIK 💖 <br> Sistem tidak mampu memproses kecantikan tingkat dewa.";
-    },2000);
+<p id="result"></p>
+
+<img id="photo" src="https://i.imgur.com/gigi.jpg">
+
+<audio id="beep" src="https://www.soundjay.com/buttons/beep-07.mp3"></audio>
+<audio id="song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+<script>
+function startScan() {
+    let result = document.getElementById("result");
+    let beep = document.getElementById("beep");
+    let song = document.getElementById("song");
+    let photo = document.getElementById("photo");
+
+    result.innerHTML = "Initializing quantum scanner...";
+    beep.play();
+
+    setTimeout(() => { result.innerHTML = "Detecting face..."; beep.play(); }, 2000);
+    setTimeout(() => { result.innerHTML = "Reading emotions..."; beep.play(); }, 4000);
+    setTimeout(() => { result.innerHTML = "Accessing secret database..."; beep.play(); }, 6000);
+
+    setTimeout(() => { result.innerHTML = "Finalizing... 5"; }, 8000);
+    setTimeout(() => { result.innerHTML = "Finalizing... 4"; }, 9000);
+    setTimeout(() => { result.innerHTML = "Finalizing... 3"; }, 10000);
+    setTimeout(() => { result.innerHTML = "Finalizing... 2"; }, 11000);
+    setTimeout(() => { result.innerHTML = "Finalizing... 1"; }, 12000);
+
+    setTimeout(() => {
+        document.body.classList.add("red-alert");
+        document.body.classList.add("shake");
+        result.innerHTML = "⚠ SYSTEM BREACH DETECTED ⚠";
+    }, 13000);
+
+    setTimeout(() => {
+        document.body.classList.remove("red-alert");
+        document.body.classList.remove("shake");
+        document.body.style.background = "black";
+        document.body.style.color = "#00ff00";
+
+        result.innerHTML =
+        "❤️ SYSTEM OVERRIDE ❤️<br><br>" +
+        "IDENTITY CONFIRMED!<br><br>" +
+        "Name: Cewe Tercantik Se-Galaksi 😳<br>" +
+        "Status: Bikin Senyum Sendiri<br>" +
+        "Danger Level: 9999 (Bikin Kangen Parah)<br><br>" +
+        "SYSTEM FALLING IN LOVE...";
+
+        photo.style.display = "block";
+        song.play();
+    }, 16000);
 }
 </script>
 
