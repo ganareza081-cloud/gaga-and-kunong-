@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Beauty Scanner 💅</title>
+
+<style>
+body{
+    margin:0;
+    background:#0f0f0f;
+    color:white;
+    font-family:Arial, sans-serif;
+    text-align:center;
+}
+
+.container{
+    margin-top:50px;
+}
+
+img{
+    width:260px;
+    border-radius:20px;
+    box-shadow:0 0 25px hotpink;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:hotpink;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.loading{
+    margin-top:20px;
+    font-size:18px;
+}
+
+.result{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+    color:hotpink;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>💅 AI Beauty Detector v4.0</h1>
+
+    <img src="foto.jpg" alt="Target">
+
+    <br>
+    <button onclick="scan()">Scan Sekarang</button>
+
+    <div class="loading" id="loading"></div>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function scan(){
+    document.getElementById("result").innerHTML="";
+    document.getElementById("loading").innerHTML="🔍 Menganalisis wajah...";
+
+    setTimeout(function(){
+        document.getElementById("loading").innerHTML="";
+        document.getElementById("result").innerHTML=
+        "❌ ERROR 404: WAJAH TERLALU CANTIK 💖 <br> Sistem tidak mampu memproses kecantikan tingkat dewa.";
+    },2000);
+}
+</script>
+
+</body>
+</html>
